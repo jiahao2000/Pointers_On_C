@@ -3,7 +3,7 @@
 #include <string.h>
 
 #define MAX_COLS 20
-#define MAX_INPUT 100
+#define MAX_INPUT 1000
 
 int read_column_numbers(int columns[], int max);
 void rearrange(char *output, char const *input, int n_columns, int const columns[]);
@@ -42,7 +42,7 @@ int read_column_numbers(int columns[], int max)
     
     if (num % 2 != 0)
     {
-        puts("Last column number is not paired");
+        puts("Last column number is not paired");//puts函数会自动在末尾换行 gets函数和puts函数配合使用
         exit(EXIT_FAILURE);
     }
     //丢弃该行中包含最后一个数字的那部分
@@ -52,9 +52,9 @@ int read_column_numbers(int columns[], int max)
 }
 void rearrange(char *output, char const *input, int n_columns, int const columns[])
 {
-    int col;
-    int output_col;
-    int len;
+    int col; //columns数组的下标
+    int output_col; //输出列计数器
+    int len; //输入行的长度
 
     len = strlen(input);
     output_col = 0;
@@ -67,7 +67,7 @@ void rearrange(char *output, char const *input, int n_columns, int const columns
         if (output_col + nchars > MAX_INPUT - 1)
             nchars = MAX_INPUT - output_col - 1;
         strncpy(output + output_col, input + columns[col], nchars);
-        output_col += nchars;
+        output_col += nchars;//指向下一个要拷入的位置
     }
-    output[output_col] = '\0';
+    output[output_col] = '\0'; //output的最后一个位置加入一个结束符
 }
