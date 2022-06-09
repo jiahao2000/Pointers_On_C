@@ -1,6 +1,6 @@
 /*
-* File   : ch01/rearange.c
-* Author : treenewbee
+* File   : ch01/rearrange.c
+* Author : Tree new bee
 * Page   : 32
 * Date   : 2022-06-09
 */
